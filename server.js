@@ -1,5 +1,5 @@
 // Functionally start the server
-//server.js
+// Separated from app.js for testing purposes
 const app = require("./app");
 
 const PORT = 3000;
