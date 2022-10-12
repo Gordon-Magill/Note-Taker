@@ -93,14 +93,33 @@ app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname,'/public/index.html'))
 });
 
-
-
-
 // Legendary, forbidden delete verb
+app.delete('/api/notes/:id', (req,res) => {
+    
 
-// app.delete('/api/notes', (req,res) => {
+    fs.readFile('./db/db.json', (err, data) => {
+        if (err) {
+            console.log(err)
+        } else {
+            let arrayJSON = JSON.parse(data)
+            let newArray = [];
+            arrayJSON.forEach((el) => {
+                if (el.id !== req.params.id) {
+                    newArray.push(el)
+                }
+            })
+            fs.writeFile('./db/db.json',JSON.stringify(newArray), (err) => {
+                err
+                    ? console.log(err)
+                    : console.log('Entry deleted from db.json')
+            })
+        }
+    })
 
-// })
+
+
+
+})
 
 
 // console.log(`${uuid.v4()}`)
