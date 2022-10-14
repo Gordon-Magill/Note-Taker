@@ -24,6 +24,7 @@ app.get("/api/notes", (req, res) => {
   console.log("/api/notes GET request was called");
   fs.readFile("./db/db.json", (err, data) => {
     err ? console.log("Error reading db.json") : res.json(JSON.parse(data));
+    res.end();
   });
 });
 
@@ -69,8 +70,7 @@ app.post("/api/notes", (req, res) => {
       fs.writeFile("./db/db.json", JSON.stringify(arrayJSON), (err) => {
         err ? console.log(err) : console.log("Wrote new db.json content");
       });
-      res.end()
-
+      res.end();
     }
   });
 });
@@ -103,6 +103,7 @@ app.delete("/api/notes/:id", (req, res) => {
       });
       fs.writeFile("./db/db.json", JSON.stringify(newArray), (err) => {
         err ? console.log(err) : console.log("Entry deleted from db.json");
+        res.end();
       });
     }
   });
