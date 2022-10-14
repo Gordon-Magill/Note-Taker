@@ -5,6 +5,10 @@
 
 A simple application for taking notes, locally and persistently stored. Sort out your thoughts, get ideas out of your brain and onto the computer! Add new notes, review previous ones, and delete old notes when no longer needed.
 
+Link to deployed page: https://safe-crag-07289.herokuapp.com/
+
+![Deployed page](./assets/images/note_taker_deployed.png)
+
 ## Table of Contents
 
 - [Installation](#installation)
