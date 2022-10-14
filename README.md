@@ -3,7 +3,7 @@
 
 ## Description
 
-A simple application for taking notes, locally and persistently stored. Sort out your thoughts, get ideas out of your brain and onto the computer!
+A simple application for taking notes, locally and persistently stored. Sort out your thoughts, get ideas out of your brain and onto the computer! Add new notes, review previous ones, and delete old notes when no longer needed.
 
 ## Table of Contents
 
@@ -33,8 +33,8 @@ Not taking contributions at this time, but feel free to fork and modify!
 ## Questions
 
 [Github: Gordon-Magill](https://github.com/Gordon-Magill)<br>
-Email: gordon.magill@gmail.com
-Please reach out via provided email for any questions.
+Email: gordon.magill@gmail.com<br>
+Please reach out via email for any questions.
 
 ## License
 
