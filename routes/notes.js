@@ -4,11 +4,10 @@ const uuid = require("uuid");
 // fs module for reading and writing JSON to db.json
 const fs = require("fs");
 
-
 // API Routes
 // Reading note content from db.json
 router.get("/", (req, res) => {
-  console.log("/api/notes GET request was called");
+  //   console.log("/api/notes GET request was called");
   fs.readFile("./db/db.json", (err, data) => {
     err ? console.log("Error reading db.json") : res.json(JSON.parse(data));
     res.end();
@@ -20,21 +19,17 @@ router.post("/", (req, res) => {
   console.log("/api/notes POST request was called...");
   // console.log(req)
   let noteJSON = req.body;
+
+  //   Technically the app as written doesn't accommodate updating note content after saving, but it felt reasonable
+  //   to add some facility for it just in case
   let overwriteFlag = false;
 
   if (!noteJSON.id) {
     // If the note didn't have an ID, it must be new, and gets a random one assigned to it
-    console.log(
-      `Note that was passed to POST endpoint was missing id, now generating one for it...`
-    );
     noteJSON.id = uuid.v4();
-    console.log(`New note object is: ${JSON.stringify(noteJSON)}`);
-  } else {
-    console.log(
-      `Note that was passed to POST endpoint already had an id, proceeding to write file...`
-    );
   }
 
+  //   Reading exising data in
   fs.readFile("./db/db.json", (err, data) => {
     if (err) {
       console.log(err);
@@ -46,7 +41,6 @@ router.post("/", (req, res) => {
           origArray[index] = noteJSON;
           overwriteFlag = true;
         }
-        // If no match was found, push the new note into the array
       });
 
       // If no content was overwritten, it must be a new file to append
@@ -54,6 +48,7 @@ router.post("/", (req, res) => {
         arrayJSON.push(noteJSON);
       }
 
+      //   Writing the new content to file
       fs.writeFile("./db/db.json", JSON.stringify(arrayJSON), (err) => {
         err ? console.log(err) : console.log("Wrote new db.json content");
       });
