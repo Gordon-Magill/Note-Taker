@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 
 // Writing note content to db.json
 router.post("/", (req, res) => {
-  console.log("/api/notes POST request was called...");
+//   console.log("/api/notes POST request was called...");
   // console.log(req)
   let noteJSON = req.body;
 

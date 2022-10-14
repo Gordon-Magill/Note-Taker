@@ -26,7 +26,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () => {
-  console.log(`getNotes called...`)
+  // console.log(`getNotes called...`)
   return fetch('/api/notes', {
     method: 'GET',
     headers: {
@@ -77,9 +77,9 @@ const handleNoteSave = () => {
     title: noteTitle.value,
     text: noteText.value,
   };
-  console.log('About to save note')
+  // console.log('About to save note')
   saveNote(newNote).then(() => {
-    console.log('Refreshing content after saving')
+    // console.log('Refreshing content after saving')
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -126,9 +126,9 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
-  console.log(`renderNoteList called with ${notes}`)
+  // console.log(`renderNoteList called with ${notes}`)
   let jsonNotes = await notes.json();
-  console.log(JSON.stringify(jsonNotes))
+  // console.log(JSON.stringify(jsonNotes))
 
   // Wipes the existing note list clean
   if (window.location.pathname === '/notes') {
